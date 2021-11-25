@@ -1,6 +1,6 @@
 package com.entity;
 
-import java.util.Objects;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,13 +18,25 @@ public class Furniture
 	private int furnitureId;
 	
 	private String furnitureName;
+	
+	private String image;
 
+	
 	private String furnitureModel;
 	
 	private String furnitureColor;
 	
 	
 	private int price;
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 
 	public int getFurnitureId() {
 		return furnitureId;
@@ -68,41 +80,11 @@ public class Furniture
 
 	@Override
 	public String toString() {
-		return "Furniture [furnitureId=" + furnitureId + ", furnitureName=" + furnitureName + ", furnitureModel="
-				+ furnitureModel + ", furnitureColor=" + furnitureColor + ", price=" + price + "]";
+		return "Furniture [furnitureId=" + furnitureId + ", furnitureName=" + furnitureName + ", image=" + image
+				+ ", furnitureModel=" + furnitureModel + ", furnitureColor=" + furnitureColor + ", price=" + price
+				+ "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(furnitureColor, furnitureId, furnitureModel, furnitureName, price);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Furniture other = (Furniture) obj;
-		return Objects.equals(furnitureColor, other.furnitureColor) && furnitureId == other.furnitureId
-				&& Objects.equals(furnitureModel, other.furnitureModel)
-				&& Objects.equals(furnitureName, other.furnitureName) && price == other.price;
-	}
-
-	public Furniture(int furnitureId, String furnitureName, String furnitureModel, String furnitureColor, int price) {
-		super();
-		this.furnitureId = furnitureId;
-		this.furnitureName = furnitureName;
-		this.furnitureModel = furnitureModel;
-		this.furnitureColor = furnitureColor;
-		this.price = price;
-	}
-
-	public Furniture() {
-		super();
-	}
 	
 	
 	
