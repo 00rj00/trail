@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.entity.Customer;
+import com.exception.CustomerException;
 import com.repository.CustomerRepository;
 
 
@@ -16,13 +17,13 @@ public class CustomerService implements CustomerInterface
 	CustomerRepository repo;
 
 	@Override
-	public List<Customer> getAllCustomers() {
+	public List<Customer> getAllCustomers() throws CustomerException{
 		List<Customer> list = repo.findAll();
 		return list;
 	}
 
 	@Override
-	public Customer addCustomer(Customer customer) {
+	public Customer addCustomer(Customer customer) throws CustomerException{
 		return repo.save(customer);
 	}
 
